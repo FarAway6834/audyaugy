@@ -1,0 +1,5 @@
+#!/bin/sh
+alias f="function"&&alias popme="rm $0";f gensh{echo "#!/bin/sh">$2&&echo $1>>$2&&chmod u+x $2};f setup{gensh $1 /bin/$2};f srmer{setup "rm ${@:2}" $1};f pkger{local -n h=$1;local a="${!hashmap[@]}";for k in a;do;setup setup "${h[$k]}" $k;done;srmer $2 $a}&&f mypkg{eval "declare -A temp=(${@:2})";mypkg $temp $1}
+mypkg(audgy_uninstall,
+    '["audgy"] = "apt update&&upgrade -y"'
+)
